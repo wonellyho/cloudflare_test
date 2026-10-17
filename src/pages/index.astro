@@ -1,0 +1,554 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+
+import heroWaikiki from '../assets/hawaii/hero-waikiki.jpg';
+import diamondhead from '../assets/hawaii/diamondhead.jpg';
+import locomoco from '../assets/hawaii/locomoco.jpg';
+import shaveice from '../assets/hawaii/shaveice.jpg';
+import thebus from '../assets/hawaii/thebus.jpg';
+import trolley from '../assets/hawaii/trolley.jpg';
+import airport from '../assets/hawaii/airport.jpg';
+import h1freeway from '../assets/hawaii/h1freeway.jpg';
+---
+
+<Layout title="Waikiki Days" description="오아후 와이키키 중심의 하와이 여행 가이드 — About, Food, Traffic 세 탭으로 구성.">
+
+	<header class="hero">
+		<Image class="hero__img" src={heroWaikiki} alt="와이키키 해변과 다이아몬드 헤드가 내려다보이는 항공 전경" widths={[640, 1200, 1920]} sizes="100vw" format="webp" quality={82} />
+		<div class="hero__scrim"></div>
+		<div class="hero__content">
+			<p class="eyebrow">ALOHA, O'AHU</p>
+			<h1 class="hero__title">와이키키의 하루,<br>바다가 그려내는 시간</h1>
+			<p class="hero__sub">오아후 섬 와이키키를 중심으로 둘러보는 여행 가이드 — 지역, 음식, 이동수단까지 한 번에.</p>
+		</div>
+	</header>
+
+	<nav class="tabbar" aria-label="섹션 탐색">
+		<div class="tabbar__inner">
+			<button class="tab" data-tab="about" aria-selected="true">
+				<span class="tab__label">ABOUT</span>
+				<span class="tab__sub">지역 소개</span>
+			</button>
+			<button class="tab" data-tab="food" aria-selected="false">
+				<span class="tab__label">FOOD</span>
+				<span class="tab__sub">로컬 푸드</span>
+			</button>
+			<button class="tab" data-tab="traffic" aria-selected="false">
+				<span class="tab__label">TRAFFIC</span>
+				<span class="tab__sub">이동수단</span>
+			</button>
+		</div>
+	</nav>
+
+	<main>
+
+		<!-- ABOUT -->
+		<section class="panel" id="panel-about" data-panel="about">
+			<div class="panel__intro">
+				<h2>섬의 리듬에 몸을 맡기다</h2>
+				<p>오아후는 하와이 제도에서 가장 많은 여행자가 찾는 섬입니다. 화산이 빚어낸 능선과 끝없는 산호초 바다, 그 사이로 솟은 호텔들이 만드는 스카이라인이 와이키키의 첫인상이죠. 걷기 좋은 해안 산책로 하나만으로도 하루가 금방 지나갑니다.</p>
+			</div>
+
+			<div class="bento">
+				<article class="bento__card bento__card--feature">
+					<Image src={diamondhead} alt="다이아몬드 헤드 분화구 정상에서 바라본 전망" widths={[400, 800]} sizes="(min-width: 760px) 32rem, 100vw" format="webp" quality={82} />
+					<div class="bento__text">
+						<h3>다이아몬드 헤드</h3>
+						<p>와이키키 동쪽 끝에 솟은 응회암 분화구. 정상까지 약 1.3km, 왕복 1시간 남짓이면 와이키키 해안선 전체가 눈앞에 펼쳐집니다. 해 뜨기 전 입구가 가장 먼저 붐비는 곳.</p>
+					</div>
+				</article>
+
+				<article class="bento__card">
+					<div class="bento__icon">🏖️</div>
+					<h3>와이키키 비치</h3>
+					<p>약 3km에 걸친 해변. 아침엔 패들보드와 서핑 강습, 오후엔 노을을 보려는 사람들로 결이 바뀝니다.</p>
+				</article>
+
+				<article class="bento__card">
+					<div class="bento__icon">🌊</div>
+					<h3>노스쇼어</h3>
+					<p>겨울철 거대한 파도로 유명한 서퍼들의 성지. 여름엔 거울처럼 잔잔해져 스노클링 포인트로 변합니다.</p>
+				</article>
+
+				<article class="bento__card">
+					<div class="bento__icon">🛍️</div>
+					<h3>알라모아나</h3>
+					<p>야자수 공원과 맞닿은 야외형 쇼핑센터. 더위를 피해 걷기 좋고 로컬 식당도 함께 몰려 있습니다.</p>
+				</article>
+			</div>
+
+			<div class="strip">
+				<div class="strip__row">
+					<span class="strip__label">최적 여행 시기</span>
+					<span class="strip__value">4&ndash;6월 · 9&ndash;11월</span>
+					<span class="strip__note">우기와 성수기를 피한 환승 구간</span>
+				</div>
+				<div class="strip__row">
+					<span class="strip__label">평균 기온</span>
+					<span class="strip__value">24&ndash;31<span class="unit">&deg;C</span></span>
+					<span class="strip__note">연중 큰 변동 없이 온화함</span>
+				</div>
+				<div class="strip__row">
+					<span class="strip__label">시차</span>
+					<span class="strip__value">&minus;19<span class="unit">시간</span></span>
+					<span class="strip__note">한국보다 하루 전날, 늦은 오전</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- FOOD -->
+		<section class="panel" id="panel-food" data-panel="food" hidden>
+			<div class="panel__intro">
+				<h2>접시 위의 이민사</h2>
+				<p>하와이 음식은 폴리네시아, 일본, 중국, 필리핀, 미국 본토의 식문화가 사탕수수 농장에서 함께 일하던 노동자들 사이로 섞여 만들어졌습니다. 그래서 한 끼 안에 여러 나라의 흔적이 동시에 담겨 있죠.</p>
+			</div>
+
+			<div class="bento">
+				<article class="bento__card bento__card--feature">
+					<Image src={locomoco} alt="밥 위에 패티, 그레이비, 달걀 프라이를 올린 로코모코" widths={[400, 800]} sizes="(min-width: 760px) 32rem, 100vw" format="webp" quality={82} />
+					<div class="bento__text">
+						<h3>로코모코</h3>
+						<p>흰밥 위에 패티, 그레이비 소스, 반숙 달걀 프라이를 쌓아 올린 든든한 한 그릇. 1940년대 힐로의 한 식당에서 운동하던 학생들을 위해 만든 것이 시작이라고 전해집니다.</p>
+					</div>
+				</article>
+
+				<article class="bento__card bento__card--feature bento__card--wide">
+					<Image src={shaveice} alt="1940년부터 영업 중인 와이올라 셰이브 아이스 가게 간판" widths={[400, 800]} sizes="(min-width: 760px) 32rem, 100vw" format="webp" quality={82} />
+					<div class="bento__text">
+						<h3>셰이브 아이스</h3>
+						<p>곱게 간 얼음에 색색의 시럽을 켜켜이 뿌린 하와이식 빙수. 1940년부터 자리를 지켜온 가게들이 여전히 성업 중이며, 리하이무이·아즈키빈 같은 로컬 토핑이 포인트입니다.</p>
+					</div>
+				</article>
+
+				<article class="bento__card">
+					<div class="bento__icon">🐟</div>
+					<h3>포케</h3>
+					<p>간장, 참기름, 양파로 밑간한 날 참치를 밥 위에 올린 하와이식 회덮밥. 길거리 마켓마다 저마다의 레시피가 있습니다.</p>
+				</article>
+
+				<article class="bento__card">
+					<div class="bento__icon">🍩</div>
+					<h3>말라사다</h3>
+					<p>속이 비지 않은 포르투갈식 도넛. 갓 튀겨 설탕을 듬뿍 묻힌 것을 현장에서 바로 받아 먹는 게 정석입니다.</p>
+				</article>
+
+				<article class="bento__card">
+					<div class="bento__icon">🍙</div>
+					<h3>스팸무스비</h3>
+					<p>구운 스팸을 밥과 함께 김으로 감싼 간편식. 편의점에서도 쉽게 구할 수 있는 섬의 국민 간식.</p>
+				</article>
+			</div>
+
+			<div class="strip">
+				<div class="strip__row">
+					<span class="strip__label">플레이트 런치</span>
+					<span class="strip__value">두 스쿱</span>
+					<span class="strip__note">밥 두 스쿱 + 마카로니 샐러드가 기본 구성</span>
+				</div>
+				<div class="strip__row">
+					<span class="strip__label">현지 팁</span>
+					<span class="strip__value">현금 준비</span>
+					<span class="strip__note">트럭 푸드·로컬 식당은 카드 미지원이 흔함</span>
+				</div>
+				<div class="strip__row">
+					<span class="strip__label">혼잡 시간</span>
+					<span class="strip__value">11:30&ndash;13:00</span>
+					<span class="strip__note">런치 타임엔 대기 줄이 금세 길어짐</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- TRAFFIC -->
+		<section class="panel" id="panel-traffic" data-panel="traffic" hidden>
+			<div class="panel__intro">
+				<h2>섬을 가로지르는 방법</h2>
+				<p>오아후는 서울보다 작지만 대중교통만으로 구석구석 닿기엔 시간이 걸리는 섬입니다. 머무는 지역과 일정에 따라 이동 수단을 조합하는 편이 가장 효율적입니다.</p>
+			</div>
+
+			<div class="bento">
+				<article class="bento__card bento__card--feature">
+					<Image src={airport} alt="활주로와 바다에 둘러싸인 호놀룰루 공항 항공 전경" widths={[400, 800]} sizes="(min-width: 760px) 32rem, 100vw" format="webp" quality={82} />
+					<div class="bento__text">
+						<h3>공항에서 와이키키까지</h3>
+						<p>호놀룰루 국제공항에서 와이키키까지는 약 15km, 차로 25&ndash;40분. 공항 셔틀, 택시, 라이드셰어 모두 터미널 바로 앞에서 탈 수 있습니다.</p>
+					</div>
+				</article>
+
+				<article class="bento__card bento__card--feature">
+					<Image src={trolley} alt="야자수 거리를 달리는 오픈탑 와이키키 트롤리" widths={[400, 800]} sizes="(min-width: 760px) 32rem, 100vw" format="webp" quality={82} />
+					<div class="bento__text">
+						<h3>와이키키 트롤리</h3>
+						<p>지붕 없는 2층 버스로 주요 관광지를 순환합니다. 노선별 색깔로 구분되며, 사진 찍기 좋은 자리에 앉아 섬 구경하듯 이동하기 좋습니다.</p>
+					</div>
+				</article>
+
+				<article class="bento__card bento__card--feature">
+					<Image src={thebus} alt="와이키키 거리에 정차한 호놀룰루 대중교통 더버스" widths={[400, 800]} sizes="(min-width: 760px) 32rem, 100vw" format="webp" quality={82} />
+					<div class="bento__text">
+						<h3>더버스 (TheBus)</h3>
+						<p>섬 전역을 촘촘히 잇는 공공 버스. 요금이 저렴하고 노선이 많지만, 배차 간격이 길어 시간 여유가 있을 때 추천합니다.</p>
+					</div>
+				</article>
+
+				<article class="bento__card bento__card--feature">
+					<Image src={h1freeway} alt="야자수와 산을 배경으로 차량이 달리는 오아후 고속도로" widths={[400, 800]} sizes="(min-width: 760px) 32rem, 100vw" format="webp" quality={82} />
+					<div class="bento__text">
+						<h3>렌터카 &amp; 하이웨이</h3>
+						<p>노스쇼어나 동쪽 해안까지 일정을 넓히고 싶다면 렌터카가 가장 자유롭습니다. 출퇴근 시간대 H-1 고속도로 정체만 피하면 운전은 수월한 편.</p>
+					</div>
+				</article>
+			</div>
+
+			<div class="strip">
+				<div class="strip__row">
+					<span class="strip__label">더버스 요금</span>
+					<span class="strip__value">편도 3<span class="unit">달러</span></span>
+					<span class="strip__note">환승 2.5시간까지 무료, 현금은 잔돈 미지급</span>
+				</div>
+				<div class="strip__row">
+					<span class="strip__label">정체 구간</span>
+					<span class="strip__value">07&ndash;09 · 16&ndash;18시</span>
+					<span class="strip__note">H-1 고속도로 출퇴근 시간대</span>
+				</div>
+				<div class="strip__row">
+					<span class="strip__label">도보 반경</span>
+					<span class="strip__value">와이키키 내부</span>
+					<span class="strip__note">숙소가 해변 근처라면 대부분 걸어서 해결</span>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+	<footer class="site-footer">
+		<p>Waikiki Days &mdash; O'ahu, Hawai'i 여행 가이드</p>
+	</footer>
+
+</Layout>
+
+<style>
+	:root {
+		--ink: #10302c;
+		--ink-soft: #3c5a56;
+		--surface: #fbf6ec;
+		--surface-raised: #ffffff;
+		--border: #e1d7c0;
+		--teal: #0f7a72;
+		--coral: #ef6f4e;
+		--shadow: 0 18px 40px -22px rgba(16, 48, 44, 0.35);
+		--font-display: "Noto Serif KR", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+		--font-body: "Pretendard Variable", "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", sans-serif;
+	}
+
+	:root:not([data-theme="light"]) {
+		@media (prefers-color-scheme: dark) {
+			--ink: #eef3f0;
+			--ink-soft: #b9c9c4;
+			--surface: #0e1f1c;
+			--surface-raised: #152e29;
+			--border: #24423c;
+			--teal: #3fc3b6;
+			--coral: #ff8c6b;
+			--shadow: 0 18px 44px -20px rgba(0, 0, 0, 0.6);
+		}
+	}
+
+	:root[data-theme="dark"] {
+		--ink: #eef3f0;
+		--ink-soft: #b9c9c4;
+		--surface: #0e1f1c;
+		--surface-raised: #152e29;
+		--border: #24423c;
+		--teal: #3fc3b6;
+		--coral: #ff8c6b;
+		--shadow: 0 18px 44px -20px rgba(0, 0, 0, 0.6);
+	}
+
+	:global(html), :global(body) {
+		margin: 0;
+		background: var(--surface);
+		color: var(--ink);
+		font-family: var(--font-body);
+		line-height: 1.6;
+		-webkit-font-smoothing: antialiased;
+		overflow-x: hidden;
+	}
+
+	h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; }
+
+	p { margin: 0; }
+
+	button { font-family: inherit; }
+
+	.eyebrow {
+		margin: 0 0 0.9rem;
+		font-size: 0.8rem;
+		letter-spacing: 0.22em;
+		text-transform: uppercase;
+		color: #ffe9c7;
+		font-weight: 600;
+	}
+
+	/* ---------- HERO ---------- */
+	.hero {
+		position: relative;
+		min-height: 72vh;
+		display: flex;
+		align-items: flex-end;
+		overflow: hidden;
+	}
+
+	.hero :global(.hero__img) {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center 68%;
+	}
+
+	.hero__scrim {
+		position: absolute;
+		inset: 0;
+		background:
+			linear-gradient(180deg, rgba(10, 30, 28, 0.55) 0%, rgba(10, 30, 28, 0.15) 32%, rgba(10, 30, 28, 0.2) 60%, rgba(8, 24, 22, 0.92) 100%);
+	}
+
+	.hero__content {
+		position: relative;
+		padding: 3rem 1.5rem 3.5rem;
+		max-width: 44rem;
+		color: #fbf6ec;
+	}
+
+	.hero__title {
+		font-size: clamp(2rem, 6vw, 3.4rem);
+		font-weight: 600;
+		line-height: 1.22;
+		letter-spacing: -0.01em;
+	}
+
+	.hero__sub {
+		margin-top: 1.1rem;
+		max-width: 34rem;
+		font-size: 1.02rem;
+		color: #e4ead4;
+	}
+
+	/* ---------- TAB NAV ---------- */
+	.tabbar {
+		position: sticky;
+		top: 0;
+		z-index: 20;
+		background: var(--surface);
+		border-bottom: 1px solid var(--border);
+	}
+
+	.tabbar__inner {
+		display: flex;
+		max-width: 64rem;
+		margin: 0 auto;
+	}
+
+	.tab {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.2rem;
+		padding: 0.95rem 0.5rem 0.8rem;
+		background: transparent;
+		border: none;
+		border-bottom: 3px solid transparent;
+		color: var(--ink-soft);
+		cursor: pointer;
+		transition: color 0.2s ease, border-color 0.2s ease;
+	}
+
+	.tab:hover { color: var(--ink); }
+
+	.tab:focus-visible {
+		outline: 2px solid var(--teal);
+		outline-offset: -2px;
+	}
+
+	.tab[aria-selected="true"] {
+		color: var(--teal);
+		border-bottom-color: var(--coral);
+	}
+
+	.tab__label {
+		font-family: var(--font-display);
+		font-size: 0.95rem;
+		letter-spacing: 0.08em;
+		font-weight: 600;
+	}
+
+	.tab__sub {
+		font-size: 0.72rem;
+		color: var(--ink-soft);
+		letter-spacing: 0.02em;
+	}
+
+	/* ---------- PANELS ---------- */
+	main {
+		max-width: 64rem;
+		margin: 0 auto;
+		padding: 2.6rem 1.5rem 1rem;
+	}
+
+	.panel__intro {
+		max-width: 38rem;
+		margin-bottom: 2.2rem;
+	}
+
+	.panel__intro h2 {
+		font-size: clamp(1.5rem, 3vw, 1.9rem);
+		margin-bottom: 0.8rem;
+	}
+
+	.panel__intro p { color: var(--ink-soft); }
+
+	/* ---------- BENTO GRID ---------- */
+	.bento {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1.1rem;
+		margin-bottom: 2.2rem;
+	}
+
+	.bento__card {
+		position: relative;
+		background: var(--surface-raised);
+		border: 1px solid var(--border);
+		border-radius: 4px;
+		padding: 1.3rem 1.3rem 1.5rem;
+		grid-column: span 2;
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+		box-shadow: var(--shadow);
+	}
+
+	.bento__card--feature {
+		grid-column: span 2;
+		padding: 0;
+		overflow: hidden;
+	}
+
+	.bento__card--wide { grid-column: span 2; }
+
+	.bento__card--feature :global(img) {
+		width: 100%;
+		height: 13rem;
+		object-fit: cover;
+		display: block;
+	}
+
+	.bento__card--feature .bento__text {
+		padding: 1.2rem 1.3rem 1.5rem;
+	}
+
+	.bento__icon {
+		font-size: 1.7rem;
+		line-height: 1;
+	}
+
+	.bento__card h3 {
+		font-size: 1.1rem;
+		font-weight: 600;
+	}
+
+	.bento__card p, .bento__text p {
+		color: var(--ink-soft);
+		font-size: 0.93rem;
+	}
+
+	.bento__text h3 { margin-bottom: 0.3rem; }
+
+	/* ---------- STRIP (data row) ---------- */
+	.strip {
+		border-top: 1px solid var(--border);
+		border-bottom: 1px solid var(--border);
+		margin-bottom: 3rem;
+	}
+
+	.strip__row {
+		display: grid;
+		grid-template-columns: 11rem 9rem 1fr;
+		align-items: baseline;
+		gap: 1rem;
+		padding: 0.85rem 0;
+		border-top: 1px solid var(--border);
+	}
+
+	.strip__row:first-child { border-top: none; }
+
+	.strip__label {
+		font-size: 0.82rem;
+		letter-spacing: 0.04em;
+		color: var(--ink-soft);
+	}
+
+	.strip__value {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 1.15rem;
+		color: var(--teal);
+		font-variant-numeric: tabular-nums;
+	}
+
+	.strip__value .unit {
+		font-family: var(--font-body);
+		font-size: 0.75rem;
+		font-weight: 500;
+		margin-left: 0.15rem;
+		color: var(--ink-soft);
+	}
+
+	.strip__note {
+		font-size: 0.86rem;
+		color: var(--ink-soft);
+	}
+
+	/* ---------- FOOTER ---------- */
+	.site-footer {
+		text-align: center;
+		padding: 2rem 1rem 2.6rem;
+		color: var(--ink-soft);
+		font-size: 0.82rem;
+		letter-spacing: 0.03em;
+	}
+
+	/* ---------- RESPONSIVE ---------- */
+	@media (max-width: 760px) {
+		.bento { grid-template-columns: repeat(2, 1fr); }
+		.bento__card,
+		.bento__card--feature,
+		.bento__card--wide { grid-column: span 2; }
+		.strip__row {
+			grid-template-columns: 1fr;
+			gap: 0.2rem;
+		}
+		.tab__sub { display: none; }
+	}
+</style>
+
+<script>
+	const tabs = document.querySelectorAll<HTMLButtonElement>('.tab');
+	const panels = document.querySelectorAll<HTMLElement>('.panel');
+
+	tabs.forEach((tab) => {
+		tab.addEventListener('click', () => {
+			const target = tab.dataset.tab;
+
+			tabs.forEach((t) => t.setAttribute('aria-selected', String(t === tab)));
+			panels.forEach((p) => {
+				p.hidden = p.dataset.panel !== target;
+			});
+
+			document.querySelector('.tabbar')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		});
+	});
+</script>
